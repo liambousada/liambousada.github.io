@@ -40,13 +40,21 @@
       h3 {
         font-size: 3rem; /* Larger text for subheadings */
       }
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
         .image-container, .content-container {
           flex: 100%;
         }
         .image-container {
           max-width: 100%;
         }
+        table {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        td {
+            flex: 0 0 100%; /* Each cell takes the full width of the table */
+          }
         h1 {
           font-size: 1.5rem; /* Slightly smaller on small devices */
         }

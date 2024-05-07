@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lake Rosseau Water Temp</title>
-    <style>
-      body {
-        background-color: #dce7fa; /* Light blue background */
-      }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRSx0LZXxTcqo_b-q0yYHr2xGWx_vQ4liX_NSLN7fG-sjLSbyz5_r_3YFf32kZ6xupAaSa1FR6hZ0Ug/pub?output=csv';
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    const rows = data.split('\n'); // Split CSV by line
-                    const container = document.getElementById('spreadsheetData');
-                    rows.forEach((row, index) => {
-                        if (index > -1) { // Skip header row
-                            const columns = row.split(','); // Split each line by comma
-                            container.innerHTML += `<h1>${columns[0]}: ${columns[1]}°f</h1>`; // Adjust based on your CSV columns
-                        }
-                    });
-                });
-        });
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
+    padding: 10px;
+  }
+  .text-center {
+    text-align: center;
+    width: 100%; /* Full width to center the title on smaller screens */
+  }
+  .image-container, .content-container {
+    flex: 1; /* Flex-grow to allow flexible expansion based on available space */
+    padding: 10px;
+  }
+  .image-container {
+    max-width: 20%; /* Limits the width of the image container */
+  }
+  img {
+    width: 100%; /* Responsive images */
+    height: auto;
+  }
+  @media (max-width: 768px) { /* Adjustments for smaller screens */
+    .image-container, .content-container {
+      flex: 100%; /* Stack on top of each other on small screens */
+    }
+    .image-container {
+      max-width: 100%;
+    }
+  }
+</style>
 </head>
 <body>
-    <p style="text-align: center;">&nbsp;</p>
-<table style="height: 320px; width: 2122px;">
-<tbody>
-<tr>
-<td style="width: 253px;"><img src="images/warm at last small.jpg" alt="bella" /></td>
-<td style="width: 1544.67px; text-align: center;">
-<h1>The Water Temperature of Lake Rosseau</h1>
-<h3>Hi there! My name is Liam. I'm 19 years old and I'm a cottager on beautiful Lake Rosseau.</h3>
-<h3>Every day at 9 a.m., I update this page with the current water temperatures of the lake. (Note that the thermometer is located on North Lake Rosseau and is in a shaded area).</h3>
-<h3>Please check out my <a href="https://cloudbreakcoats.square.site/" target="_blank" rel="noopener">Cloudbreak Cottage Coats</a> that I designed for everyday cottage life!</h3>
-<div id="spreadsheetData" style="text-align: center;"><!-- Spreadsheet data will be loaded here --></div>
-</td>
-<td style="width: 290.333px;"><img src="images/warm at last small.jpg" alt="" /></td>
-</tr>
-</tbody>
-</table>
-    
+<div class="text-center">
+  <h1>The Water Temperature of Lake Rosseau</h1>
+</div>
+<div class="container">
+  <div class="image-container">
+    <img src="images/warm at last small.jpg" alt="Lake Rosseau Scenery">
+  </div>
+  <div class="content-container">
+    <h3>Hi there! My name is Liam. I'm 19 years old and I'm a cottager on beautiful Lake Rosseau.</h3>
+    <h3>Every day at 9 a.m., I update this page with the current water temperatures of the lake. (Note that the thermometer is located on North Lake Rosseau and is in a shaded area).</h3>
+    <h3>Please check out my <a href="https://cloudbreakcoats.square.site/" target="_blank" rel="noopener">Cloudbreak Cottage Coats</a> that I designed for everyday cottage life!</h3>
+    <div id="spreadsheetData" class="text-center"><!-- Spreadsheet data will be loaded here --></div>
+  </div>
+  <div class="image-container">
+    <img src="images/warm at last small.jpg" alt="Lake Rosseau Scenery">
+  </div>
+</div>
 </body>
 </html>

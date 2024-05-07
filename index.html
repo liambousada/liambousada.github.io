@@ -4,37 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+  html {
+    font-size: 16px; /* Base font size */
+  }
+  body {
+    font-family: Arial, sans-serif; /* Ensures a modern, legible font is used */
+  }
   .container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
+    flex-wrap: wrap;
     padding: 10px;
   }
   .text-center {
     text-align: center;
-    width: 100%; /* Full width to center the title on smaller screens */
+    width: 100%;
+    padding: 20px 0; /* Adds vertical padding for spacing */
   }
   .image-container, .content-container {
-    flex: 1; /* Flex-grow to allow flexible expansion based on available space */
+    flex: 1;
     padding: 10px;
   }
   .image-container {
-    max-width: 20%; /* Limits the width of the image container */
+    max-width: 20%;
   }
   img {
-    width: 100%; /* Responsive images */
+    width: 100%;
     height: auto;
   }
-  @media (max-width: 768px) { /* Adjustments for smaller screens */
+  h1 {
+    font-size: 2.5rem; /* Responsive font size for the main title */
+  }
+  h3 {
+    font-size: 1.5rem; /* Larger text for subheadings */
+  }
+  @media (max-width: 768px) {
     .image-container, .content-container {
-      flex: 100%; /* Stack on top of each other on small screens */
+      flex: 100%;
     }
     .image-container {
       max-width: 100%;
     }
+    h1 {
+      font-size: 2rem; /* Slightly smaller on small devices */
+    }
+    h3 {
+      font-size: 1.2rem; /* Ensures subheadings are legible on smaller screens */
+    }
   }
 </style>
+
 </head>
 <body>
 <div class="text-center">

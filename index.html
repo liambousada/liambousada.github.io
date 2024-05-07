@@ -13,10 +13,8 @@
                     const rows = data.split('\n'); // Split CSV by line
                     const container = document.getElementById('spreadsheetData');
                     rows.forEach((row, index) => {
-                        if (index > 0) { // Skip header row
                         if (index > -1) { // Skip header row
                             const columns = row.split(','); // Split each line by comma
-                            container.innerHTML += `<p>${columns[0]}: ${columns[1]}</p>`; // Adjust based on your CSV columns
                             container.innerHTML += `<p>${columns[0]}: ${columns[1]}°f</p>`; // Adjust based on your CSV columns
                         }
                     });

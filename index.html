@@ -1,35 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My HTML Page</title>
-    <style>
-        /* CSS styles can go here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
     <title>Live Spreadsheet Data</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRSx0LZXxTcqo_b-q0yYHr2xGWx_vQ4liX_NSLN7fG-sjLSbyz5_r_3YFf32kZ6xupAaSa1FR6hZ0Ug/pub?output=csv';
-
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
@@ -37,8 +14,10 @@
                     const container = document.getElementById('spreadsheetData');
                     rows.forEach((row, index) => {
                         if (index > 0) { // Skip header row
+                        if (index > -1) { // Skip header row
                             const columns = row.split(','); // Split each line by comma
                             container.innerHTML += `<p>${columns[0]}: ${columns[1]}</p>`; // Adjust based on your CSV columns
+                            container.innerHTML += `<p>${columns[0]}: ${columns[1]}°f</p>`; // Adjust based on your CSV columns
                         }
                     });
                 });
@@ -46,10 +25,6 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My HTML Page</h1>
-        <p>This is a basic HTML template.</p>
-        <p>You can modify it to suit your needs.</p>
     <div id="spreadsheetData">
         <!-- Spreadsheet data will be loaded here -->
     </div>

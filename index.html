@@ -3,7 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Spreadsheet Data</title>
+    <title>Formatted Spreadsheet Data</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 50%; /* Adjust the width as necessary */
+            background-color: pink;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f78fa7;
+        }
+    </style>
+</head>
+<body>
+    <table id="spreadsheetData">
+        <!-- Table data will be dynamically inserted here -->
+    </table>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRSx0LZXxTcqo_b-q0yYHr2xGWx_vQ4liX_NSLN7fG-sjLSbyz5_r_3YFf32kZ6xupAaSa1FR6hZ0Ug/pub?output=csv';
@@ -11,23 +41,23 @@
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
-                    const rows = data.split('\n'); // Split CSV by line
-                    const container = document.getElementById('spreadsheetData');
+                    const rows = data.split('\n');
+                    const table = document.getElementById('spreadsheetData');
+                    // Setup table headers
+                    let tableHtml = '<tr><th>Name</th><th>Age</th></tr>';
                     rows.forEach((row, index) => {
-                        if (index > -1) { // Skip header row
-                            const columns = row.split(','); // Split each line by comma
-                            container.innerHTML += `<p>${columns[0]}: ${columns[1]}°f</p>`; // Adjust based on your CSV columns
+                        if (index > 0) { // Assuming the first row is headers and skipping it
+                            const columns = row.split(',');
+                            tableHtml += `<tr><td>${columns[0]}</td><td>${columns[1]}</td></tr>`;
                         }
                     });
+                    table.innerHTML = tableHtml; // Append rows to table
+                })
+                .catch(error => {
+                    console.log('Error fetching or parsing data:', error);
+                    document.getElementById('spreadsheetData').innerHTML = 'Failed to load data. Please refresh the page.';
                 });
         });
     </script>
-</head>
-<body>
-    <div id="spreadsheetData">
-        <!-- Spreadsheet data will be loaded here -->
-    </div>
 </body>
 </html>
-
-

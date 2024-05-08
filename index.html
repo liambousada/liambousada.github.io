@@ -31,7 +31,7 @@
         max-width: 20%;
       }
       .responsive-image {
-         width: 50%; /* Half width on big screens */
+         width: 30%; /* Half width on big screens */
       }
       img {
         width: 50%;
@@ -86,14 +86,14 @@
                     rows.forEach((row, index) => {
                         if (index > -1) { // Skip header row
                             const columns = row.split(','); // Split each line by comma
-                            container.innerHTML += `<h1>${columns[0]}: ${columns[1]}°f</h1>`; // Adjust based on your CSV columns
+                            container.innerHTML += `<h1>${columns[0]}: ${columns[1]}°F</h1>`; // Adjust based on your CSV columns
                         }
                     });
                 });
         });
     </script>
 </head>
-<body style="background-color:#f7ffe4">
+<body style="background-color:#f7f4e4">
 <h1 style="text-align: center;">The Water Temperature of Lake Rosseau</h1>
 <table style="margin-left: auto; margin-right: auto; height: 373px; width: 100%">
 <tbody>
@@ -114,7 +114,8 @@
 </tr>
 <tr style="height: 32px;">
 <td style="width: 100%; height: 32px; text-align: center;">
-<h3 style="text-align: center;">Please check out my <a href="https://cloudbreakcoats.square.site/" target="_blank" rel="noopener">Cloudbreak Cottage Coats</a> that I designed for everyday cottage life!</h3>
+<h3 style="text-align: center;">Please check out my <a href="https://cloudbreakcoats.square.site/" target="_blank" rel="noopener">Cloudbreak Cottage Coats</a> that I designed for everyday cottage life!<br><br></h3>
+<h1 style="text-align: center; text-decoration: underline;>Temperature</h1>
 </td>
 </tr>
 <tr style="height: 32px;">

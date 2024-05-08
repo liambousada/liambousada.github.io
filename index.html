@@ -30,8 +30,11 @@
       .image-container {
         max-width: 20%;
       }
+      .responsive-image {
+         width: 50%; /* Half width on big screens */
+      }
       img {
-        width: 100%;
+        width: 50%;
         height: auto;
       }
       h1 {
@@ -50,6 +53,11 @@
         .image-container {
           max-width: 100%;
         }
+        .responsive-image {
+            width: 100%;  /* Full width on small screens */
+            height: auto; /* Maintain aspect ratio */
+        }
+        
         table {
             display: flex;
             flex-direction: column;
@@ -85,7 +93,7 @@
         });
     </script>
 </head>
-<body style="background-color:#f7f4e4">
+<body style="background-color:#f7ffe4">
 <h1 style="text-align: center;">The Water Temperature of Lake Rosseau</h1>
 <table style="margin-left: auto; margin-right: auto; height: 373px; width: 100%">
 <tbody>
@@ -96,10 +104,10 @@
 </td>
 </tr>
 <tr style="height: 32px;">
-<td style="width: 50%; height: 32px; text-align: center;">
+<td style="width: 100%; height: 32px; text-align: center;">
 <h3>
     <a href="https://cloudbreakcoats.square.site/">
-        <img style="display: block; margin-left: auto; margin-right: auto;" src="images/temp website pic.jpg" alt="bella warm at last" />
+        <img style="display: block; margin-left: auto; margin-right: auto;" src="images/temp website pic.jpg" alt="bella warm at last" class="responsive-image"/>
     </a>
 </h3>
 </td>

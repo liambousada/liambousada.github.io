@@ -33,6 +33,10 @@
       .responsive-image {
          width: 30%; /* Half width on big screens */
       }
+      .temp {
+         font-size: 10rem; 
+         color: #366385;
+      }
       img {
         width: 50%;
         height: auto;
@@ -58,6 +62,10 @@
             height: auto; /* Maintain aspect ratio */
         }
         
+      .temp {
+         font-size: 5rem; 
+         color: #366385;
+       }
         table {
             display: flex;
             flex-direction: column;
@@ -86,7 +94,7 @@
                     rows.forEach((row, index) => {
                         if (index > -1) { // Skip header row
                             const columns = row.split(','); // Split each line by comma
-                            container.innerHTML += `<h1  style="font-size: 10rem; color: #366385;">${columns[0]}: ${columns[1]}°F</h1>`; // Adjust based on your CSV columns
+                            container.innerHTML += `<h1 class="temp">${columns[0]}: ${columns[1]}°F</h1>`; // Adjust based on your CSV columns
                         }
                     });
                 });
